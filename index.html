@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>helloD3</title>
+</head>
+<body>
+    <p class="big">Ju哥</p>
+    <p id="ydh">元神</p>
+    <p>高神</p>
+        <script src="lib/d3.min.js" charset="utf-8">
+        </script>
+        <script>
+            var body = d3.select("body");
+            //body.insert("p",".big")
+            //.text(test);
+            body.append("p")
+                .text("刘尚青");
+            body.insert("p",".big")
+                .text("420寝室");
+            var width = 300;
+            var height = 300;
+            var svg = d3.select("body")
+                .append("svg")
+                .attr("width",width)
+                .attr("height",height);
+            var dataset = [200,200,400,10]
+            var rectHeight = 25;
+            svg.selectAll("rect")
+                .data(dataset)
+                .enter()
+                .append("rect")
+                .attr("x",20)
+                .attr("y",function (d,i) {
+                   return i* rectHeight;
+                })
+                .attr("width",function (d) {
+                  return d;
+                })
+                .attr("height",rectHeight-2)
+                .attr("fill","steelblue");
+        </script>
+</html>
